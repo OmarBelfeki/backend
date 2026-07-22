@@ -1,0 +1,54 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DlrTask = void 0;
+const common_1 = require("@nestjs/common");
+const schedule_1 = require("@nestjs/schedule");
+const prisma_service_1 = require("../prisma/prisma.service");
+const task_DlrService_1 = require("./task.DlrService");
+let DlrTask = class DlrTask {
+    prisma;
+    dlrService;
+    constructor(prisma, dlrService) {
+        this.prisma = prisma;
+        this.dlrService = dlrService;
+    }
+    async handleDlr() {
+        const messages = await this.prisma.message.findMany({
+            where: {
+                providerMsgId: { not: null },
+                status: {
+                    in: ['UNKNOWN', 'UNDELIV'],
+                },
+            },
+            take: 50,
+        });
+        if (!messages || messages.length === 0) {
+            return;
+        }
+        for (const msg of messages) {
+            await this.dlrService.checkSingleMessage(msg);
+        }
+    }
+};
+exports.DlrTask = DlrTask;
+__decorate([
+    (0, schedule_1.Cron)('*/1 * * * *'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], DlrTask.prototype, "handleDlr", null);
+exports.DlrTask = DlrTask = __decorate([
+    (0, common_1.Injectable)(),
+    __metadata("design:paramtypes", [prisma_service_1.PrismaService,
+        task_DlrService_1.DlrService])
+], DlrTask);
+//# sourceMappingURL=task.dlr.js.map

@@ -1,0 +1,97 @@
+import { TenantService } from './tenant.service';
+import { CreateTenantDto } from './dto/create-tenant.dto';
+import { UpdateTenantDto } from './dto/update-tenant.dto';
+export declare class TenantController {
+    private readonly tenantService;
+    constructor(tenantService: TenantService);
+    create(req: any, createTenantDto: CreateTenantDto): Promise<{
+        id: string;
+        companyName: string;
+        email: string;
+        timezone: string | null;
+        providerApiKey: string | null;
+        virtualBalance: import("@prisma/client-runtime-utils").Decimal;
+        taxId: string | null;
+        businessSector: string;
+        phone: string | null;
+        city: string | null;
+        postalCode: string | null;
+        address: string | null;
+        createdAt: Date;
+    }>;
+    findAll(): Promise<{
+        id: string;
+        companyName: string;
+        email: string;
+        timezone: string | null;
+        providerApiKey: string | null;
+        virtualBalance: import("@prisma/client-runtime-utils").Decimal;
+        taxId: string | null;
+        businessSector: string;
+        phone: string | null;
+        city: string | null;
+        postalCode: string | null;
+        address: string | null;
+        createdAt: Date;
+    }[]>;
+    findOne(id: string): Promise<{
+        id: string;
+        companyName: string;
+        email: string;
+        timezone: string | null;
+        providerApiKey: string | null;
+        virtualBalance: import("@prisma/client-runtime-utils").Decimal;
+        taxId: string | null;
+        businessSector: string;
+        phone: string | null;
+        city: string | null;
+        postalCode: string | null;
+        address: string | null;
+        createdAt: Date;
+    }>;
+    update(id: string, updateTenantDto: UpdateTenantDto): Promise<{
+        id: string;
+        companyName: string;
+        email: string;
+        timezone: string | null;
+        providerApiKey: string | null;
+        virtualBalance: import("@prisma/client-runtime-utils").Decimal;
+        taxId: string | null;
+        businessSector: string;
+        phone: string | null;
+        city: string | null;
+        postalCode: string | null;
+        address: string | null;
+        createdAt: Date;
+    }>;
+    updateStatus(id: string): Promise<{
+        id: string;
+        email: string;
+        phone: string | null;
+        createdAt: Date;
+        passwordHash: string;
+        role: import("../../../generated/prisma/enums").Role;
+        isActive: string;
+        isVerified: boolean;
+        lang: string | null;
+        tenantId: string | null;
+        hashedRefreshToken: string | null;
+        lastActiveAt: Date | null;
+    }>;
+    remove(id: string): Promise<{
+        id: string;
+        companyName: string;
+        email: string;
+        timezone: string | null;
+        providerApiKey: string | null;
+        virtualBalance: import("@prisma/client-runtime-utils").Decimal;
+        taxId: string | null;
+        businessSector: string;
+        phone: string | null;
+        city: string | null;
+        postalCode: string | null;
+        address: string | null;
+        createdAt: Date;
+    }>;
+    removeMany(ids: string[]): Promise<import("../../../generated/prisma/internal/prismaNamespace").BatchPayload>;
+}

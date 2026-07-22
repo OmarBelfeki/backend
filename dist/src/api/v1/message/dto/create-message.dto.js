@@ -1,0 +1,101 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateMessageDto = void 0;
+const class_validator_1 = require("class-validator");
+var DlrStatus;
+(function (DlrStatus) {
+    DlrStatus["DELIVRD"] = "DELIVRD";
+    DlrStatus["UNDELIV"] = "UNDELIV";
+    DlrStatus["EXPIRED"] = "EXPIRED";
+    DlrStatus["REJECTED"] = "REJECTED";
+    DlrStatus["UNKNOWN"] = "UNKNOWN";
+})(DlrStatus || (DlrStatus = {}));
+var MessageType;
+(function (MessageType) {
+    MessageType["GROUP"] = "GROUP";
+    MessageType["SPREADSHEET"] = "SPREADSHEET";
+    MessageType["SMS"] = "SMS";
+    MessageType["OTHER"] = "OTHER";
+})(MessageType || (MessageType = {}));
+class CreateMessageDto {
+    phone;
+    messageBody;
+    providerMsgId;
+    status;
+    type;
+    costInCredits;
+    sentAt;
+    deliveredAt;
+    campaignId;
+    tenantId;
+    senderId;
+}
+exports.CreateMessageDto = CreateMessageDto;
+__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateMessageDto.prototype, "phone", void 0);
+__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateMessageDto.prototype, "messageBody", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateMessageDto.prototype, "providerMsgId", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsEnum)(DlrStatus),
+    __metadata("design:type", String)
+], CreateMessageDto.prototype, "status", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsEnum)(MessageType),
+    __metadata("design:type", String)
+], CreateMessageDto.prototype, "type", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)(),
+    __metadata("design:type", Number)
+], CreateMessageDto.prototype, "costInCredits", void 0);
+__decorate([
+    (0, class_validator_1.IsDate)(),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Date)
+], CreateMessageDto.prototype, "sentAt", void 0);
+__decorate([
+    (0, class_validator_1.IsDate)(),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Date)
+], CreateMessageDto.prototype, "deliveredAt", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateMessageDto.prototype, "campaignId", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateMessageDto.prototype, "tenantId", void 0);
+__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsUUID)(),
+    __metadata("design:type", String)
+], CreateMessageDto.prototype, "senderId", void 0);
+//# sourceMappingURL=create-message.dto.js.map

@@ -1,0 +1,102 @@
+import { CampaignService } from './campaign.service';
+import { CreateCampaignDto } from './dto/create-campaign.dto';
+import { UpdateCampaignDto } from './dto/update-campaign.dto';
+import { UpdateCampaignScheduleDto } from './dto/update-campaign-schedule.dto';
+export declare class CampaignController {
+    private readonly campaignService;
+    constructor(campaignService: CampaignService);
+    create(req: any, createCampaignDto: CreateCampaignDto): Promise<{
+        id: string;
+        createdAt: Date;
+        isActive: boolean | null;
+        tenantId: string;
+        status: import("../../../generated/prisma/enums").CampaignStatus;
+        name: string;
+        type: import("../../../generated/prisma/enums").CampaignType;
+        messageContent: string;
+        scheduledAt: Date | null;
+        totalContacts: number;
+        estimatedCost: import("@prisma/client-runtime-utils").Decimal;
+        senderId: string;
+        groupId: string | null;
+    }>;
+    findAll(req: any): Promise<{
+        id: string;
+        createdAt: Date;
+        isActive: boolean | null;
+        tenantId: string;
+        status: import("../../../generated/prisma/enums").CampaignStatus;
+        name: string;
+        type: import("../../../generated/prisma/enums").CampaignType;
+        messageContent: string;
+        scheduledAt: Date | null;
+        totalContacts: number;
+        estimatedCost: import("@prisma/client-runtime-utils").Decimal;
+        senderId: string;
+        groupId: string | null;
+    }[]>;
+    findOne(req: any, id: string): Promise<{
+        id: string;
+        createdAt: Date;
+        isActive: boolean | null;
+        tenantId: string;
+        status: import("../../../generated/prisma/enums").CampaignStatus;
+        name: string;
+        type: import("../../../generated/prisma/enums").CampaignType;
+        messageContent: string;
+        scheduledAt: Date | null;
+        totalContacts: number;
+        estimatedCost: import("@prisma/client-runtime-utils").Decimal;
+        senderId: string;
+        groupId: string | null;
+    }>;
+    update(req: any, id: string, updateCampaignDto: UpdateCampaignDto): Promise<{
+        id: string;
+        createdAt: Date;
+        isActive: boolean | null;
+        tenantId: string;
+        status: import("../../../generated/prisma/enums").CampaignStatus;
+        name: string;
+        type: import("../../../generated/prisma/enums").CampaignType;
+        messageContent: string;
+        scheduledAt: Date | null;
+        totalContacts: number;
+        estimatedCost: import("@prisma/client-runtime-utils").Decimal;
+        senderId: string;
+        groupId: string | null;
+    }>;
+    remove(req: any, id: string): Promise<{
+        id: string;
+        createdAt: Date;
+        isActive: boolean | null;
+        tenantId: string;
+        status: import("../../../generated/prisma/enums").CampaignStatus;
+        name: string;
+        type: import("../../../generated/prisma/enums").CampaignType;
+        messageContent: string;
+        scheduledAt: Date | null;
+        totalContacts: number;
+        estimatedCost: import("@prisma/client-runtime-utils").Decimal;
+        senderId: string;
+        groupId: string | null;
+    }>;
+    send(req: any, id: string): Promise<{
+        messages: string;
+    }>;
+    updateSchedule(req: any, id: string, body: UpdateCampaignScheduleDto): Promise<{
+        id: string;
+        createdAt: Date;
+        isActive: boolean | null;
+        tenantId: string;
+        status: import("../../../generated/prisma/enums").CampaignStatus;
+        name: string;
+        type: import("../../../generated/prisma/enums").CampaignType;
+        messageContent: string;
+        scheduledAt: Date | null;
+        totalContacts: number;
+        estimatedCost: import("@prisma/client-runtime-utils").Decimal;
+        senderId: string;
+        groupId: string | null;
+    }>;
+    removeMany(ids: string[]): Promise<import("../../../generated/prisma/internal/prismaNamespace").BatchPayload>;
+}

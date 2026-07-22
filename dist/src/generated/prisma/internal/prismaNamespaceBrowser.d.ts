@@ -1,0 +1,323 @@
+import * as runtime from "@prisma/client/runtime/index-browser";
+export type * from '../models.js';
+export type * from './prismaNamespace.js';
+export declare const Decimal: typeof runtime.Decimal;
+export declare const NullTypes: {
+    DbNull: (new (secret: never) => typeof runtime.DbNull);
+    JsonNull: (new (secret: never) => typeof runtime.JsonNull);
+    AnyNull: (new (secret: never) => typeof runtime.AnyNull);
+};
+export declare const DbNull: import("@prisma/client-runtime-utils").DbNullClass;
+export declare const JsonNull: import("@prisma/client-runtime-utils").JsonNullClass;
+export declare const AnyNull: import("@prisma/client-runtime-utils").AnyNullClass;
+export declare const ModelName: {
+    readonly Tenant: "Tenant";
+    readonly User: "User";
+    readonly SenderID: "SenderID";
+    readonly Contact: "Contact";
+    readonly File: "File";
+    readonly Group: "Group";
+    readonly Campaign: "Campaign";
+    readonly Message: "Message";
+    readonly Transaction: "Transaction";
+    readonly AI: "AI";
+    readonly Notification: "Notification";
+    readonly Module: "Module";
+    readonly Otp: "Otp";
+    readonly Template: "Template";
+    readonly AuditLog: "AuditLog";
+    readonly SettingProfile: "SettingProfile";
+    readonly LegalPages: "LegalPages";
+    readonly Session: "Session";
+    readonly Analytics: "Analytics";
+    readonly smtp: "smtp";
+    readonly TestProvider: "TestProvider";
+    readonly RatePerSMS: "RatePerSMS";
+};
+export type ModelName = (typeof ModelName)[keyof typeof ModelName];
+export declare const TransactionIsolationLevel: {
+    readonly ReadUncommitted: "ReadUncommitted";
+    readonly ReadCommitted: "ReadCommitted";
+    readonly RepeatableRead: "RepeatableRead";
+    readonly Serializable: "Serializable";
+};
+export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel];
+export declare const TenantScalarFieldEnum: {
+    readonly id: "id";
+    readonly companyName: "companyName";
+    readonly email: "email";
+    readonly timezone: "timezone";
+    readonly providerApiKey: "providerApiKey";
+    readonly virtualBalance: "virtualBalance";
+    readonly taxId: "taxId";
+    readonly businessSector: "businessSector";
+    readonly phone: "phone";
+    readonly city: "city";
+    readonly postalCode: "postalCode";
+    readonly address: "address";
+    readonly createdAt: "createdAt";
+};
+export type TenantScalarFieldEnum = (typeof TenantScalarFieldEnum)[keyof typeof TenantScalarFieldEnum];
+export declare const UserScalarFieldEnum: {
+    readonly id: "id";
+    readonly email: "email";
+    readonly passwordHash: "passwordHash";
+    readonly role: "role";
+    readonly isActive: "isActive";
+    readonly isVerified: "isVerified";
+    readonly phone: "phone";
+    readonly lang: "lang";
+    readonly tenantId: "tenantId";
+    readonly hashedRefreshToken: "hashedRefreshToken";
+    readonly lastActiveAt: "lastActiveAt";
+    readonly createdAt: "createdAt";
+};
+export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum];
+export declare const SenderIDScalarFieldEnum: {
+    readonly id: "id";
+    readonly label: "label";
+    readonly status: "status";
+    readonly requestedAt: "requestedAt";
+    readonly tenantId: "tenantId";
+};
+export type SenderIDScalarFieldEnum = (typeof SenderIDScalarFieldEnum)[keyof typeof SenderIDScalarFieldEnum];
+export declare const ContactScalarFieldEnum: {
+    readonly id: "id";
+    readonly phone: "phone";
+    readonly firstName: "firstName";
+    readonly lastName: "lastName";
+    readonly customFields: "customFields";
+    readonly error: "error";
+    readonly status: "status";
+    readonly createdAt: "createdAt";
+    readonly tenantId: "tenantId";
+};
+export type ContactScalarFieldEnum = (typeof ContactScalarFieldEnum)[keyof typeof ContactScalarFieldEnum];
+export declare const FileScalarFieldEnum: {
+    readonly id: "id";
+    readonly filename: "filename";
+    readonly path: "path";
+    readonly mimetype: "mimetype";
+    readonly createdAt: "createdAt";
+    readonly contactId: "contactId";
+};
+export type FileScalarFieldEnum = (typeof FileScalarFieldEnum)[keyof typeof FileScalarFieldEnum];
+export declare const GroupScalarFieldEnum: {
+    readonly id: "id";
+    readonly name: "name";
+    readonly description: "description";
+    readonly tenantId: "tenantId";
+    readonly nbContact: "nbContact";
+    readonly createdAt: "createdAt";
+};
+export type GroupScalarFieldEnum = (typeof GroupScalarFieldEnum)[keyof typeof GroupScalarFieldEnum];
+export declare const CampaignScalarFieldEnum: {
+    readonly id: "id";
+    readonly name: "name";
+    readonly type: "type";
+    readonly messageContent: "messageContent";
+    readonly scheduledAt: "scheduledAt";
+    readonly status: "status";
+    readonly totalContacts: "totalContacts";
+    readonly estimatedCost: "estimatedCost";
+    readonly createdAt: "createdAt";
+    readonly isActive: "isActive";
+    readonly tenantId: "tenantId";
+    readonly senderId: "senderId";
+    readonly groupId: "groupId";
+};
+export type CampaignScalarFieldEnum = (typeof CampaignScalarFieldEnum)[keyof typeof CampaignScalarFieldEnum];
+export declare const MessageScalarFieldEnum: {
+    readonly id: "id";
+    readonly phone: "phone";
+    readonly messageBody: "messageBody";
+    readonly providerMsgId: "providerMsgId";
+    readonly error: "error";
+    readonly status: "status";
+    readonly costInCredits: "costInCredits";
+    readonly sentAt: "sentAt";
+    readonly deliveredAt: "deliveredAt";
+    readonly campaignId: "campaignId";
+    readonly type: "type";
+    readonly tenantId: "tenantId";
+    readonly senderId: "senderId";
+};
+export type MessageScalarFieldEnum = (typeof MessageScalarFieldEnum)[keyof typeof MessageScalarFieldEnum];
+export declare const TransactionScalarFieldEnum: {
+    readonly id: "id";
+    readonly amount: "amount";
+    readonly currency: "currency";
+    readonly konnectRef: "konnectRef";
+    readonly nbSMS: "nbSMS";
+    readonly remainingSMS: "remainingSMS";
+    readonly rateSMS: "rateSMS";
+    readonly status: "status";
+    readonly invoiceUrl: "invoiceUrl";
+    readonly createdAt: "createdAt";
+    readonly endAt: "endAt";
+    readonly tenantId: "tenantId";
+};
+export type TransactionScalarFieldEnum = (typeof TransactionScalarFieldEnum)[keyof typeof TransactionScalarFieldEnum];
+export declare const AIScalarFieldEnum: {
+    readonly id: "id";
+    readonly linkSMS: "linkSMS";
+    readonly linkAnti: "linkAnti";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
+    readonly tenantId: "tenantId";
+};
+export type AIScalarFieldEnum = (typeof AIScalarFieldEnum)[keyof typeof AIScalarFieldEnum];
+export declare const NotificationScalarFieldEnum: {
+    readonly id: "id";
+    readonly title: "title";
+    readonly message: "message";
+    readonly dateTime: "dateTime";
+    readonly type: "type";
+    readonly data: "data";
+    readonly tenantId: "tenantId";
+    readonly createdAt: "createdAt";
+    readonly unread: "unread";
+    readonly sender: "sender";
+    readonly status: "status";
+    readonly to: "to";
+};
+export type NotificationScalarFieldEnum = (typeof NotificationScalarFieldEnum)[keyof typeof NotificationScalarFieldEnum];
+export declare const ModuleScalarFieldEnum: {
+    readonly id: "id";
+    readonly name: "name";
+    readonly logo: "logo";
+    readonly actived: "actived";
+    readonly price: "price";
+    readonly desc: "desc";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
+};
+export type ModuleScalarFieldEnum = (typeof ModuleScalarFieldEnum)[keyof typeof ModuleScalarFieldEnum];
+export declare const OtpScalarFieldEnum: {
+    readonly userId: "userId";
+    readonly email: "email";
+    readonly phone: "phone";
+    readonly otp: "otp";
+};
+export type OtpScalarFieldEnum = (typeof OtpScalarFieldEnum)[keyof typeof OtpScalarFieldEnum];
+export declare const TemplateScalarFieldEnum: {
+    readonly id: "id";
+    readonly name: "name";
+    readonly template: "template";
+    readonly createdAt: "createdAt";
+    readonly tenantId: "tenantId";
+};
+export type TemplateScalarFieldEnum = (typeof TemplateScalarFieldEnum)[keyof typeof TemplateScalarFieldEnum];
+export declare const AuditLogScalarFieldEnum: {
+    readonly id: "id";
+    readonly tenantId: "tenantId";
+    readonly userId: "userId";
+    readonly action: "action";
+    readonly resource: "resource";
+    readonly resourceId: "resourceId";
+    readonly requestData: "requestData";
+    readonly responseData: "responseData";
+    readonly ipAddress: "ipAddress";
+    readonly userAgent: "userAgent";
+    readonly createdAt: "createdAt";
+};
+export type AuditLogScalarFieldEnum = (typeof AuditLogScalarFieldEnum)[keyof typeof AuditLogScalarFieldEnum];
+export declare const SettingProfileScalarFieldEnum: {
+    readonly userId: "userId";
+    readonly username: "username";
+    readonly avatar: "avatar";
+    readonly bio: "bio";
+    readonly urls: "urls";
+};
+export type SettingProfileScalarFieldEnum = (typeof SettingProfileScalarFieldEnum)[keyof typeof SettingProfileScalarFieldEnum];
+export declare const LegalPagesScalarFieldEnum: {
+    readonly id: "id";
+    readonly termsOfService: "termsOfService";
+    readonly privacyPolicy: "privacyPolicy";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
+};
+export type LegalPagesScalarFieldEnum = (typeof LegalPagesScalarFieldEnum)[keyof typeof LegalPagesScalarFieldEnum];
+export declare const SessionScalarFieldEnum: {
+    readonly id: "id";
+    readonly visitorId: "visitorId";
+    readonly device: "device";
+    readonly browser: "browser";
+    readonly os: "os";
+    readonly ip: "ip";
+    readonly startedAt: "startedAt";
+    readonly endedAt: "endedAt";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
+};
+export type SessionScalarFieldEnum = (typeof SessionScalarFieldEnum)[keyof typeof SessionScalarFieldEnum];
+export declare const AnalyticsScalarFieldEnum: {
+    readonly id: "id";
+    readonly sessionId: "sessionId";
+    readonly page: "page";
+    readonly referrer: "referrer";
+    readonly createdAt: "createdAt";
+};
+export type AnalyticsScalarFieldEnum = (typeof AnalyticsScalarFieldEnum)[keyof typeof AnalyticsScalarFieldEnum];
+export declare const SmtpScalarFieldEnum: {
+    readonly id: "id";
+    readonly host: "host";
+    readonly port: "port";
+    readonly encryption: "encryption";
+    readonly authMethod: "authMethod";
+    readonly username: "username";
+    readonly password: "password";
+    readonly senderName: "senderName";
+    readonly senderEmail: "senderEmail";
+    readonly createAt: "createAt";
+    readonly updateAt: "updateAt";
+};
+export type SmtpScalarFieldEnum = (typeof SmtpScalarFieldEnum)[keyof typeof SmtpScalarFieldEnum];
+export declare const TestProviderScalarFieldEnum: {
+    readonly id: "id";
+    readonly sender: "sender";
+    readonly type: "type";
+    readonly msg: "msg";
+    readonly apiKey: "apiKey";
+    readonly mobileTest: "mobileTest";
+    readonly createAt: "createAt";
+    readonly updateAt: "updateAt";
+};
+export type TestProviderScalarFieldEnum = (typeof TestProviderScalarFieldEnum)[keyof typeof TestProviderScalarFieldEnum];
+export declare const RatePerSMSScalarFieldEnum: {
+    readonly id: "id";
+    readonly ranges: "ranges";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
+};
+export type RatePerSMSScalarFieldEnum = (typeof RatePerSMSScalarFieldEnum)[keyof typeof RatePerSMSScalarFieldEnum];
+export declare const SortOrder: {
+    readonly asc: "asc";
+    readonly desc: "desc";
+};
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+export declare const NullableJsonNullValueInput: {
+    readonly DbNull: import("@prisma/client-runtime-utils").DbNullClass;
+    readonly JsonNull: import("@prisma/client-runtime-utils").JsonNullClass;
+};
+export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput];
+export declare const JsonNullValueInput: {
+    readonly JsonNull: import("@prisma/client-runtime-utils").JsonNullClass;
+};
+export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput];
+export declare const QueryMode: {
+    readonly default: "default";
+    readonly insensitive: "insensitive";
+};
+export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode];
+export declare const NullsOrder: {
+    readonly first: "first";
+    readonly last: "last";
+};
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder];
+export declare const JsonNullValueFilter: {
+    readonly DbNull: import("@prisma/client-runtime-utils").DbNullClass;
+    readonly JsonNull: import("@prisma/client-runtime-utils").JsonNullClass;
+    readonly AnyNull: import("@prisma/client-runtime-utils").AnyNullClass;
+};
+export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter];
